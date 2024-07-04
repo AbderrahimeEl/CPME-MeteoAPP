@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 
 class MaterielController extends Controller
 {
-    public function index(){
-        $materiels = Materiel::orderBy('id','desc')-> get();
+    public function index(Request $request){
+        $title = $request->input("title");
+        $materiels = Materiel::when($title, function ($query) use ($title) {
+            return $query->where("titre","like", "%" . $title . "%");
+        })->get();
         $total = Materiel::count();
         return view("admin.materiel.home",["materiels"=>$materiels,"total"=>$total]);
     }

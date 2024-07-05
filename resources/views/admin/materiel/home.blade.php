@@ -1,9 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Materiels') }}
-        </h2>
-    </x-slot>
 
     <div class="py-4">
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8">
@@ -15,7 +10,7 @@
                         </div>
                     @endif
                     {{-- {{ __('Materiels') }} --}}
-                    <x-primary-button class="mb-5"><a href="materiels/create">add</a></x-primary-button>
+                    <x-primary-button class="mb-5"><a href="materiels/create">add a new material</a></x-primary-button>
                     <form method="GET" action="{{ route('materiels') }}" class="mb-6">
                         <div class="flex items-center">
                             <input type="text" name="title" placeholder="Search by title"

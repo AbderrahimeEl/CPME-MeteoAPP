@@ -19,13 +19,12 @@
                         Materials
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
                     </a>
-                    <a href="" class="inline-block text-gray-600 hover:text-black my-4 w-full">
-                        <span class="material-icons-outlined float-left pr-2">file_copy</span>
-                        Another menu item
+                    <a href="{{route('user.index')}}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                        <span class="material-icons-outlined float-left pr-2">face</span>
+                        Users
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
                     </a>
                 </div>
-
                 <div class="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
                     <a href="{{ route('profile.edit') }}"
                         class="inline-block text-gray-600 hover:text-black my-4 w-full">
@@ -57,38 +56,36 @@
 
                     <div class="bg-no-repeat bg-orange-200 border border-orange-300 rounded-xl w-5/12 ml-2 p-6"
                         style="background-image: url(https://previews.dropbox.com/p/thumb/AAuwpqWfUgs9aC5lRoM_f-yi7OPV4txbpW1makBEj5l21sDbEGYsrC9sb6bwUFXTSsekeka5xb7_IHCdyM4p9XCUaoUjpaTSlKK99S_k4L5PIspjqKkiWoaUYiAeQIdnaUvZJlgAGVUEJoy-1PA9i6Jj0GHQTrF_h9MVEnCyPQ-kg4_p7kZ8Yk0TMTL7XDx4jGJFkz75geOdOklKT3GqY9U9JtxxvRRyo1Un8hOObbWQBS1eYE-MowAI5rNqHCE_e-44yXKY6AKJocLPXz_U4xp87K4mVGehFKC6dgk_i5Ur7gspuD7gRBDvd0sanJ9Ybr_6s2hZhrpad-2WFwWqSNkh/p.png?fv_content=true&size_mode=5); background-position: 100% 40%;">
-                        <p class="text-5xl text-indigo-900">Total Users<br><strong>
-
-
-                                <p>The best place to see wether</p>
+                        <p class="text-5xl text-indigo-900">CPM ESSAOUIRA<br><strong>
+                                <p></p>
                             </strong></p>
-                       
+
                     </div>
                 </div>
                 <div class="flex flex-row h-64 mt-6">
                     <div class="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
                         <p class="text-5xl text-indigo-900">Users<br><strong>
-                                <p class=" mt-6 text-5xl text-indigo-900">{{$userCount}}</p>
+                                <p class=" mt-6 text-5xl text-indigo-900">{{ $userCount }}</p>
                             </strong></p>
-                            <a href=""
+                        <a href="{{ route('user.index') }}"
                             class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
                                 Users</strong></a>
                     </div>
                     <div class="bg-white rounded-xl shadow-lg mx-6 px-6 py-4 w-4/12">
-                      <p class="text-5xl text-indigo-900">technicians<br><strong>
-                        <p class=" mt-6 text-5xl text-indigo-900">{{$techCount}}</p>
-                    </strong></p>
-                    <a href=""
-                    class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
-                        Users</strong></a>
+                        <p class="text-5xl text-indigo-900">technicians<br><strong>
+                                <p class=" mt-6 text-5xl text-indigo-900">{{ $techCount }}</p>
+                            </strong></p>
+                        <a href="{{route('user.index')}}"
+                            class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
+                                Techniciens</strong></a>
                     </div>
                     <div class="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
-                      <p class="text-5xl text-indigo-900">Materials<br><strong>
-                        <p class=" mt-6 text-5xl text-indigo-900">{{ $materialCount }}</p>
-                    </strong></p>
-                    <a href="{{ route('materiels') }}"
-                    class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
-                        Materials</strong></a>
+                        <p class="text-5xl text-indigo-900">Materials<br><strong>
+                                <p class=" mt-6 text-5xl text-indigo-900">{{ $materialCount }}</p>
+                            </strong></p>
+                        <a href="{{ route('materiels') }}"
+                            class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
+                                Materials</strong></a>
                     </div>
                 </div>
             </div>

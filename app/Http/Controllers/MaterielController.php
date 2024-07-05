@@ -54,7 +54,6 @@ class MaterielController extends Controller
         $materiels = Materiel::findOrFail($id);
         return view('admin.materiel.update',compact('materiels'));
     }
-
     public function update(Request $request, $id){ 
 
         $validation = $request->validate([

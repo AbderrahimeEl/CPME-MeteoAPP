@@ -1,12 +1,13 @@
 <x-app-layout>
     <section class="w-full mx-auto py-10 bg-white text-black">
-        <div class="w-fit pb-1 px-2 mx-4 rounded-md text-2xl font-semibold border-b-2 border-blue-600 ms-[10%]">Materials informations</div>
-        <div class="xl:w-[80%] sm:w-[85%] xs:w-[90%] mx-auto flex md:flex-row xs:flex-col lg:gap-4 xs:gap-2 justify-center lg:items-stretch md:items-center mt-4">
+        <div class="w-fit pb-1 px-2 mx-4 rounded-md text-2xl font-semibold border-b-2 border-blue-600 ms-[10%]">Materials
+            informations</div>
+        <div
+            class="xl:w-[80%] sm:w-[85%] xs:w-[90%] mx-auto flex md:flex-row xs:flex-col lg:gap-4 xs:gap-2 justify-center lg:items-stretch md:items-center mt-4">
             <div class="lg:w-[50%] xs:w-full">
                 @if ($materiel->image)
                     <img class="w-full h-full lg:rounded-t-lg sm:rounded-sm xs:rounded-sm object-cover border border-gray-300"
-                         src="data:image/jpeg;base64,{{ base64_encode($materiel->image) }}"
-                         alt="Materiel Image">
+                        src="data:image/jpeg;base64,{{ base64_encode($materiel->image) }}" alt="Materiel Image">
                 @else
                     <div class="w-full h-full flex items-center justify-center">
                         <span class="text-gray-500">No Image Available</span>
@@ -53,21 +54,17 @@
                                 <td class="py-2 px-4 border-b border-gray-300">{{ $materiel->date_mise_service }}</td>
                             </tr>
                             <tr>
-                                <td class="py-2 px-4 border-b border-gray-300">Intervention</td>
-                                <td class="py-2 px-4 border-b border-gray-300">{{ $materiel->intervention }}</td>
-                            </tr>
-                            <tr>
                                 <td class="py-2 px-4 border-b border-gray-300">Description</td>
                                 <td class="py-2 px-4 border-b border-gray-300">{{ $materiel->description }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                
+
                 <div class="mt-4 flex gap-2">
                     <a href="{{ route('materiels.edit', $materiel->id) }}"
                         class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
-                    <form action="" method="POST" class="inline-block">
+                    <form action="{{ route('materiels.delete', $materiel->id) }}" method="POST" class="inline-block"  onsubmit="return confirmDelete()">
                         @csrf
                         @method('DELETE')
                         <button type="submit"
@@ -80,5 +77,9 @@
             </div>
         </div>
     </section>
-    <!-- Photo by '@candjstudios' & '@framesforyourheart' on Unsplash -->
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this Material?');
+        }
+    </script>
 </x-app-layout>

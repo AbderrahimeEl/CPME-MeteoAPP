@@ -7,19 +7,22 @@ use Illuminate\Http\Request;
 
 class MaterielController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $title = $request->input("title");
         $materiels = Materiel::when($title, function ($query) use ($title) {
-            return $query->where("titre","like", "%" . $title . "%");
+            return $query->where("titre", "like", "%" . $title . "%");
         })->get();
         $total = Materiel::count();
-        return view("admin.materiel.home",["materiels"=>$materiels,"total"=>$total]);
+        return view("admin.materiel.home", ["materiels" => $materiels, "total" => $total]);
     }
-    public function create(){
+    public function create()
+    {
         return view("admin.materiel.create");
     }
 
-    public function save(Request $request){
+    public function save(Request $request)
+    {
         $validation = $request->validate([
             "titre" => "required",
             "localisation" => "required",
@@ -29,18 +32,17 @@ class MaterielController extends Controller
             "n_inventaire" => "required",
             "n_marchee" => "required",
             "date_mise_service" => "required",
-            "intervention" => "required",
             "image" => "image|mimes:jpeg,png,jpg,gif|max:2048",
         ]);
-    
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageBlob = file_get_contents($image);
             $validation['image'] = $imageBlob;
         }
-    
+
         $data = Materiel::create($validation);
-    
+
         if ($data) {
             session()->flash("success", "Material added successfully");
             return redirect()->route("materiels");
@@ -49,12 +51,14 @@ class MaterielController extends Controller
             return redirect()->route("materiels/create");
         }
     }
-    
-    public function edit($id){
+
+    public function edit($id)
+    {
         $materiels = Materiel::findOrFail($id);
-        return view('admin.materiel.update',compact('materiels'));
+        return view('admin.materiel.update', compact('materiels'));
     }
-    public function update(Request $request, $id){ 
+    public function update(Request $request, $id)
+    {
 
         $validation = $request->validate([
             "titre" => "required",
@@ -65,7 +69,6 @@ class MaterielController extends Controller
             "n_inventaire" => "required",
             "n_marchee" => "required",
             "date_mise_service" => "required",
-            "intervention" => "required",
             "image" => "image|mimes:jpeg,png,jpg,gif|max:2048",
         ]);
 
@@ -77,19 +80,6 @@ class MaterielController extends Controller
         $materiels = Materiel::findOrFail($id);
 
         $materiels->update($validation);
-
-        // $materiels->titre = $request->titre;
-        // $materiels->localisation = $request->localisation;
-        // $materiels->type = $request->type;
-        // $materiels->n_serie = $request->n_serie;
-        // $materiels->n_inventaire = $request->n_inventaire;
-        // $materiels->n_marchee = $request->n_marchee;
-        // $materiels->date_mise_service = $request->date_mise_service;
-        // $materiels->intervention = $request->intervention;
-        // $materiels->image = $request->image;
-
-
-        // $data = $materiels->save();
         if ($validation) {
             session()->flash("success", "Material added successfully");
             return redirect()->route("materiels");
@@ -102,5 +92,15 @@ class MaterielController extends Controller
     {
         $materiel = Materiel::findOrFail($id);
         return view('admin.materiel.view', compact('materiel'));
+    }
+    public function delete($id)
+    {
+        $materiels = Materiel::findOrFail($id)->delete();
+        if ($materiels) {
+            session()->flash("success", "Material deleted successfully");
+        } else {
+            session()->flash("error", "Some problem occurred");
+        }
+        return redirect()->route("materiels");
     }
 }

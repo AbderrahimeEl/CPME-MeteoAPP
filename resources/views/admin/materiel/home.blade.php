@@ -49,8 +49,8 @@
                                                 class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View</a>
                                             <a href="{{ route('materiels.edit', $materiel->id) }}"
                                                 class="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-                                            <form action="{{ route('materiels.edit', $materiel->id) }}" method="POST"
-                                                class="inline-block">
+                                            <form action="{{ route('materiels.delete', $materiel->id) }}"
+                                                method="POST" class="inline-block" onsubmit="return confirmDelete()">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
@@ -66,4 +66,9 @@
             </div>
         </div>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this Material?');
+        }
+    </script>
 </x-app-layout>

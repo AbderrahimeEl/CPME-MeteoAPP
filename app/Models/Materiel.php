@@ -18,7 +18,11 @@ class Materiel extends Model
         'n_inventaire',
         'n_marchee',
         'date_mise_service',
-        'intervention',
         'image',
     ] ;
+
+    public function interventions()
+    {
+        return $this->hasMany(Intervention::class);
+    }
 }

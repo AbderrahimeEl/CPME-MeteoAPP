@@ -77,15 +77,6 @@
                                 :messages="$errors->get('date_mise_service')" class="mt-2" />
                         </div>
 
-                        <!-- intervention -->
-                        <div class="mt-4">
-                            <x-input-label for="intervention" :value="__('intervention')" />
-                            <x-text-input id="intervention" class="block mt-1 w-full" type="text" name="intervention"
-                                value="{{ $materiels->intervention }}" required autofocus
-                                autocomplete="intervention" />
-                            <x-input-error :messages="$errors->get('intervention')" class="mt-2" />
-                        </div>
-
                         <!-- image -->
                         <div class="mt-4">
                             <x-input-label for="image" :value="__('Image')" />

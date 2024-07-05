@@ -76,22 +76,12 @@
                             <x-input-error :messages="$errors->get('date_mise_service')" class="mt-2" />
                         </div>
 
-                        <!-- intervention -->
-                        <div class="mt-4">
-                            <x-input-label for="intervention" :value="__('intervention')" />
-                            <x-text-input id="intervention" class="block mt-1 w-full" type="text" name="intervention"
-                                :value="old('intervention')" required autofocus autocomplete="intervention" />
-                            <x-input-error :messages="$errors->get('intervention')" class="mt-2" />
-                        </div>
-
                         <!-- image -->
                         <div class="mt-4">
                             <x-input-label for="image" :value="__('Image')" />
                             <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" />
                             <x-input-error :messages="$errors->get('image')" class="mt-2" />
                         </div>
-
-
 
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ms-4">

@@ -17,7 +17,6 @@ class UserController extends Controller
         $users = User::all();
         return view("admin.user.home", compact("users"));
     }
-
     /**
      * Show the form for creating a new resource.
      */

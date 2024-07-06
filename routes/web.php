@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaterielController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InterventionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/materiels/edit/{id}', [MaterielController::class, 'update'])->name('materiels.update');
     Route::get('/materiels/view/{id}', [MaterielController::class, 'view'])->name('materiels.view');
     Route::delete('/materiels/delete/{id}', [MaterielController::class, 'delete'])->name('materiels.delete');
+    Route::get('/materels/{material}/interventions', [InterventionController::class, 'showMaterialInterventions'])->name('materiels.interventions');
+    Route::get('materiels/{material}/interventions/create', [InterventionController::class, 'create'])->name('materiels.interventions.create');
+    Route::post('materiels/{material}/interventions', [InterventionController::class, 'store'])->name('materiels.interventions.store');
     Route::resource('user', UserController::class);
 });
 

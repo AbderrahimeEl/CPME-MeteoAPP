@@ -10,7 +10,9 @@
                         </div>
                     @endif
                     {{-- {{ __('Materiels') }} --}}
+                    @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
                     <x-primary-button class="mb-5"><a href="materiels/create">add a new material</a></x-primary-button>
+                    @endif
                     <form method="GET" action="{{ route('materiels') }}" class="mb-6">
                         <div class="flex items-center">
                             <input type="text" name="title" placeholder="Search by title"
@@ -47,15 +49,20 @@
                                         <div class="px-6 pt-4 pb-2">
                                             <a href="{{ route('materiels.view', ['id' => $materiel->id]) }}"
                                                 class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View</a>
-                                            <a href="{{ route('materiels.edit', $materiel->id) }}"
-                                                class="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-                                            <form action="{{ route('materiels.delete', $materiel->id) }}"
-                                                method="POST" class="inline-block" onsubmit="return confirmDelete()">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
-                                            </form>
+                                            @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
+                                                <a href="{{ route('materiels.edit', $materiel->id) }}"
+                                                    class="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+                                                <form action="{{ route('materiels.delete', $materiel->id) }}"
+                                                    method="POST" class="inline-block"
+                                                    onsubmit="return confirmDelete()">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                                                </form>
+                                                {{-- @else --}}
+                                                {{-- <span class="text-gray-400">No actions available</span> --}}
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

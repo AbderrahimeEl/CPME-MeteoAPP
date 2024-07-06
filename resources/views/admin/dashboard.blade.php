@@ -19,7 +19,7 @@
                         Materials
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
                     </a>
-                    <a href="{{route('user.index')}}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                    <a href="{{ route('user.index') }}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
                         <span class="material-icons-outlined float-left pr-2">face</span>
                         Users
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
@@ -75,7 +75,7 @@
                         <p class="text-5xl text-indigo-900">technicians<br><strong>
                                 <p class=" mt-6 text-5xl text-indigo-900">{{ $techCount }}</p>
                             </strong></p>
-                        <a href="{{route('user.index')}}"
+                        <a href="{{ route('user.index') }}"
                             class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
                                 Techniciens</strong></a>
                     </div>

@@ -8,9 +8,9 @@
             stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
             </svg>
-        <a href="{{ route('materiels.interventions', $materiel->id) }}">Go back</a>
+        <a href="{{ route('materiels.interventions', $materiel->id) }}">Retourner</a>
         </button>
-        <h1 class="text-2xl font-bold mb-6">Add Intervention for Material: {{ $materiel->name }}</h1>
+        <h1 class="text-2xl font-bold mb-6">Ajouter une intervention pour le matériel : {{ $materiel->name }}</h1>
 
         @if ($errors->any())
             <div class="mb-4">
@@ -26,14 +26,14 @@
             @csrf
 
             <div class="mb-4">
-                <label for="intervention_date" class="block text-sm font-medium text-gray-700">Intervention Date</label>
+                <label for="intervention_date" class="block text-sm font-medium text-gray-700">Date d'intervention</label>
                 <input type="date" name="intervention_date" id="intervention_date"
                     value="{{ old('intervention_date') }}"
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
             </div>
 
             <div class="mb-4">
-                <label for="intervention_type" class="block text-sm font-medium text-gray-700">Intervention Type</label>
+                <label for="intervention_type" class="block text-sm font-medium text-gray-700">Type d'intervention</label>
                 <input type="text" name="intervention_type" id="intervention_type"
                     value="{{ old('intervention_type') }}"
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
@@ -41,9 +41,9 @@
 
             <div class="mt-6 flex justify-end">
                 <a href="{{ route('materiels.interventions', $materiel->id) }}"
-                    class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">Cancel</a>
+                    class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">Annuler</a>
                 <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enregistrer</button>
             </div>
         </form>
     </div>

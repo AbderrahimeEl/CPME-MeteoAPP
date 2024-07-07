@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('edit Material') }}
+            {{ __('modifier le Matériel') }}
         </h2>
     </x-slot>
 
@@ -87,7 +87,7 @@
                             alt="Materiel Image">
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ms-4">
-                                {{ __('save') }}
+                                {{ __('enregistrer') }}
                             </x-primary-button>
                         </div>
                     </form>

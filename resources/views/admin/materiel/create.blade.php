@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot  name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Material') }}
+            {{ __('Créer un matériel') }}
         </h2>
     </x-slot>
 
@@ -48,21 +48,21 @@
                         </div>
                         <!-- n_serie -->
                         <div class="mt-4">
-                            <x-input-label for="n_serie" :value="__('n de série de l\'équipement')" />
+                            <x-input-label for="n_serie" :value="__('N° de série de l\'équipement')" />
                             <x-text-input id="n_serie" class="block mt-1 w-full" type="text" name="n_serie"
                                 :value="old('n_serie')" required autofocus autocomplete="n_serie" />
                             <x-input-error :messages="$errors->get('n_serie')" class="mt-2" />
                         </div>
                         <!-- n_inventaire -->
                         <div class="mt-4">
-                            <x-input-label for="n_inventaire" :value="__('n d\'inventaire de l\'équipement')" />
+                            <x-input-label for="n_inventaire" :value="__('N° d\'inventaire de l\'équipement')" />
                             <x-text-input id="n_inventaire" class="block mt-1 w-full" type="text" name="n_inventaire"
                                 :value="old('n_inventaire')" required autofocus autocomplete="n_inventaire" />
                             <x-input-error :messages="$errors->get('n_inventaire')" class="mt-2" />
                         </div>
                         <!-- n_marchee -->
                         <div class="mt-4">
-                            <x-input-label for="n_marchee" :value="__('n de marchée de l\'équipement')" />
+                            <x-input-label for="n_marchee" :value="__('N° de marchée de l\'équipement')" />
                             <x-text-input id="n_marchee" class="block mt-1 w-full" type="text" name="n_marchee"
                                 :value="old('n_marchee')" required autofocus autocomplete="n_marchee" />
                             <x-input-error :messages="$errors->get('n_marchee')" class="mt-2" />
@@ -85,7 +85,7 @@
 
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ms-4">
-                                {{ __('Add') }}
+                                {{ __('Ajouter') }}
                             </x-primary-button>
                         </div>
                     </form>

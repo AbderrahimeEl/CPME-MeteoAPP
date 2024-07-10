@@ -20,15 +20,15 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('user', UserController::class);
-});
-Route::middleware(['auth', 'adminOrTechnician'])->group(function () {
-    Route::get('materiels/{material}/interventions/create', [InterventionController::class, 'create'])->name('materiels.interventions.create');
-    Route::post('materiels/{material}/interventions', [InterventionController::class, 'store'])->name('materiels.interventions.store');
     Route::get('/materiels/create', [MaterielController::class, 'create'])->name('materiels.create');
     Route::post('/materiels/save', [MaterielController::class, 'save'])->name('materiels.save');
     Route::get('/materiels/edit/{id}', [MaterielController::class, 'edit'])->name('materiels.edit');
     Route::put('/materiels/edit/{id}', [MaterielController::class, 'update'])->name('materiels.update');
     Route::delete('/materiels/delete/{id}', [MaterielController::class, 'delete'])->name('materiels.delete');
+});
+Route::middleware(['auth', 'adminOrTechnician'])->group(function () {
+    Route::get('materiels/{material}/interventions/create', [InterventionController::class, 'create'])->name('materiels.interventions.create');
+    Route::post('materiels/{material}/interventions', [InterventionController::class, 'store'])->name('materiels.interventions.store');
 });
 
 Route::get('/materels/{material}/interventions', [InterventionController::class, 'showMaterialInterventions'])->name('materiels.interventions');

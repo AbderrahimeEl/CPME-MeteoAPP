@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="mt-4 flex gap-2">
-                    @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
+                    @if (auth()->user()->user_type == 'admin')
                         <a href="{{ route('materiels.edit', $materiel->id) }}"
                             class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Modifier</a>
                         <form action="{{ route('materiels.delete', $materiel->id) }}" method="POST"

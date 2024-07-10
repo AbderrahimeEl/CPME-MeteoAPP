@@ -50,7 +50,7 @@
                                         <div class="px-6 pt-4 pb-2">
                                             <a href="{{ route('materiels.view', ['id' => $materiel->id]) }}"
                                                 class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">Voir plus</a>
-                                            @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
+                                            @if (auth()->user()->user_type == 'admin')
                                                 <a href="{{ route('materiels.edit', $materiel->id) }}"
                                                     class="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 rounded">Modifier</a>
                                                 <form action="{{ route('materiels.delete', $materiel->id) }}"
@@ -61,8 +61,7 @@
                                                     <button type="submit"
                                                         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded">Supprimer</button>
                                                 </form>
-                                                {{-- @else --}}
-                                                {{-- <span class="text-gray-400">No actions available</span> --}}
+                                            
                                             @endif
                                         </div>
                                     </div>

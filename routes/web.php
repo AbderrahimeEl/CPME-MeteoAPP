@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaterielController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InterventionController;
+use App\Http\Controllers\LogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/logs/material',[LogController::class,'viewMaterialLogs']);
     Route::resource('user', UserController::class);
 });
 Route::middleware(['auth', 'adminOrTechnician'])->group(function () {
@@ -34,6 +36,5 @@ Route::middleware(['auth', 'adminOrTechnician'])->group(function () {
 Route::get('/materels/{material}/interventions', [InterventionController::class, 'showMaterialInterventions'])->name('materiels.interventions');
 Route::get('/materiels', [MaterielController::class, 'index'])->name('materiels');
 Route::get('/materiels/view/{id}', [MaterielController::class, 'view'])->name('materiels.view');
-
 
 require __DIR__ . '/auth.php';

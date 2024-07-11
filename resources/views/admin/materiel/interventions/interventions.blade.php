@@ -35,12 +35,13 @@
                                             @if (auth()->user()->user_type == 'admin' ||
                                                     (auth()->user()->user_type == 'technician' && auth()->user()->id == $intervention->user->id))
                                                 <td class="py-2 px-4 border-b">
-                                                    <button
-                                                        class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
-                                                        <a href="">Modifier</a>
+                                                    <button> <a
+                                                            href="{{ route('materiels.interventions.edit', $intervention->id) }}"
+                                                            class="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 rounded">Modifier</a>
                                                     </button>
-                                                    <form action="" method="POST"
-                                                        onsubmit="return confirmDelete()" class="inline">
+                                                    <form
+                                                        action="{{ route('materiels.interventions.delete', $intervention->id) }}"
+                                                        method="POST" onsubmit="return confirmDelete()" class="inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit"

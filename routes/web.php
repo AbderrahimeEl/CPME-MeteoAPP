@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/logs/material',[LogController::class,'viewMaterialLogs']);
+    Route::get('/logs/log', [LogController::class, 'viewLogs'])->name('logs');
     Route::resource('user', UserController::class);
     Route::get('/materiels/create', [MaterielController::class, 'create'])->name('materiels.create');
     Route::post('/materiels/save', [MaterielController::class, 'save'])->name('materiels.save');
@@ -31,6 +31,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth', 'adminOrTechnician'])->group(function () {
     Route::get('materiels/{material}/interventions/create', [InterventionController::class, 'create'])->name('materiels.interventions.create');
     Route::post('materiels/{material}/interventions', [InterventionController::class, 'store'])->name('materiels.interventions.store');
+    Route::get('materiels/interventions/edit/{id}', [InterventionController::class, 'edit'])->name('materiels.interventions.edit');
+    Route::put('materiels/interventions/edit/{id}', [InterventionController::class, 'update'])->name('materiels.interventions.update');
+    Route::delete('/materiels/interventions/delete/{id}', [InterventionController::class, 'delete'])->name('materiels.interventions.delete');
 });
 
 Route::get('/materels/{material}/interventions', [InterventionController::class, 'showMaterialInterventions'])->name('materiels.interventions');

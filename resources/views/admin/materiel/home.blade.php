@@ -21,24 +21,24 @@
                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Rechercher</button>
                         </div>
                     </form>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         @if ($materiels->isEmpty())
                             <p class="text-gray-500">Aucun matériel trouvé.</p>
                         @else
                             @foreach ($materiels as $materiel)
-                                <div class="max-w-sm  rounded overflow-hidden shadow-lg">
+                                <div class="max-w-sm rounded overflow-hidden shadow-lg">
                                     {{-- // Assuming the image is stored as a BLOB in the 'image' column --}}
                                     {{-- <img class="min-w-70 max-w-70 max-h-60 min-h-60 object-cover" src="data:image/jpeg;base64,{{ base64_encode($materiel->image) }}" alt="Materiel Image"> --}}
                                     @if ($materiel->image)
-                                        <img class="w-full h-[50%] object-cover border border-gray-300"
+                                        <img class="w-full h-[40%] object-cover border border-gray-300"
                                             src="data:image/jpeg;base64,{{ base64_encode($materiel->image) }}"
                                             alt="Materiel Image">
                                     @else
-                                        <div class="w-full h-[50%] flex items-center justify-center">
+                                        <div class="w-full h-[40%] flex items-center justify-center">
                                             <span class="text-gray-500">Aucune image disponible</span>
                                         </div>
                                     @endif
-                                    <div class="w-full h-[50%]">
+                                    <div class="w-full h-[60%]">
                                         <div class=" px-6 py-4">
                                             <div class="font-bold text-xl mb-2">{{ $materiel->titre }}</div>
                                             <p class="text-gray-700 text-base">
@@ -47,7 +47,7 @@
                                                 Constructeur: {{ $materiel->constructeur }}
                                             </p>
                                         </div>
-                                        <div class="px-6 pt-4 pb-2">
+                                        <div class="m-4">
                                             <a href="{{ route('materiels.view', ['id' => $materiel->id]) }}"
                                                 class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">Voir plus</a>
                                             @if (auth()->user()->user_type == 'admin')

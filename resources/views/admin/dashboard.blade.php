@@ -24,6 +24,12 @@
                         Users
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
                     </a>
+                    <a href="{{ route('logs') }}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                        <span class="material-icons-outlined float-left pr-2">history</span>
+                        Material Logs
+                        <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
+                    </a>
+
                 </div>
                 <div class="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
                     <a href="{{ route('profile.edit') }}"

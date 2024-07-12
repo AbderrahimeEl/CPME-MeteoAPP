@@ -96,7 +96,7 @@ class MaterielController extends Controller
                 'material_id' => $materiels->id,
                 'title' => $materiels->titre,
             ]);
-            session()->flash("success", "Material added successfully");
+            session()->flash("success", "Material updated successfully");
             return redirect()->route("materiels");
         } else {
             session()->flash("error", "Some problem occurred");

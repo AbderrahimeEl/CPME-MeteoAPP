@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -33,7 +34,10 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-
+        Log::channel('material')->info('user updated', [
+            'user' => Auth::user()->name,
+            'user_id' => Auth::id(),
+        ]);
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
     /**
@@ -46,6 +50,10 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+        Log::channel('material')->info('user deleted', [
+            'user' => Auth::user()->name,
+            'user_id' => Auth::id(),
+        ]);
 
         Auth::logout();
 

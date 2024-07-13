@@ -7,6 +7,7 @@ use App\Http\Controllers\MaterielController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InterventionController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,5 +40,9 @@ Route::middleware(['auth', 'adminOrTechnician'])->group(function () {
 Route::get('/materels/{material}/interventions', [InterventionController::class, 'showMaterialInterventions'])->name('materiels.interventions');
 Route::get('/materiels', [MaterielController::class, 'index'])->name('materiels');
 Route::get('/materiels/view/{id}', [MaterielController::class, 'view'])->name('materiels.view');
+
+
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+
 
 require __DIR__ . '/auth.php';

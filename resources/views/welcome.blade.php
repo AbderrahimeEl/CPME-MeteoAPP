@@ -396,45 +396,50 @@
                                 </div>
                             </div>
                             <!-- Contact  -->
+                            <!-- resources/views/contact.blade.php -->
                             <div class="w-full lg:w-6/12 px-4">
                                 <div
                                     class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-gray-300">
                                     <div class="flex-auto p-5 lg:p-10">
                                         <h4 class="text-2xl font-semibold">Want to work with us?</h4>
-                                        <p class="leading-relaxed mt-1  text-gray-600">
+                                        <p class="leading-relaxed mt-1 text-gray-600">
                                             Complete this form and we will get back to you in 24 hours.
                                         </p>
-                                        <div class="relative w-full mb-3 mt-8">
-                                            <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                                for="full-name">Full Name</label>
-                                            <input type="text"
-                                                class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                placeholder="Full Name" style="transition: all 0.15s ease 0s;" />
-                                        </div>
-                                        <div class="relative w-full mb-3">
-                                            <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                                for="email">Email</label>
-                                            <input type="email"
-                                                class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                placeholder="Email" style="transition: all 0.15s ease 0s;" />
-                                        </div>
-                                        <div class="relative w-full mb-3">
-                                            <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                                for="message">Message</label>
-                                            <textarea rows="8" cols="80"
-                                                class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                placeholder="Type a message..."></textarea>
-                                        </div>
-                                        <div class="text-center mt-6">
-                                            <button
-                                                class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                                                type="button" style="transition: all 0.15s ease 0s;">
-                                                Send Message
-                                            </button>
-                                        </div>
+                                        <form action="{{ route('contact.send') }}" method="POST">
+                                            @csrf
+                                            <div class="relative w-full mb-3 mt-8">
+                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                                    for="full-name">Full Name</label>
+                                                <input type="text" name="name"
+                                                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                    placeholder="Full Name" required />
+                                            </div>
+                                            <div class="relative w-full mb-3">
+                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                                    for="email">Email</label>
+                                                <input type="email" name="email"
+                                                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                    placeholder="Email" required />
+                                            </div>
+                                            <div class="relative w-full mb-3">
+                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                                    for="message">Message</label>
+                                                <textarea rows="8" name="message"
+                                                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                    placeholder="Type a message..." required></textarea>
+                                            </div>
+                                            <div class="text-center mt-6">
+                                                <button type="submit"
+                                                    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                                                    style="transition: all 0.15s ease 0s;">
+                                                    Send Message
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

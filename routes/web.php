@@ -11,7 +11,7 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,8 +40,6 @@ Route::middleware(['auth', 'adminOrTechnician'])->group(function () {
 Route::get('/materels/{material}/interventions', [InterventionController::class, 'showMaterialInterventions'])->name('materiels.interventions');
 Route::get('/materiels', [MaterielController::class, 'index'])->name('materiels');
 Route::get('/materiels/view/{id}', [MaterielController::class, 'view'])->name('materiels.view');
-
-
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 

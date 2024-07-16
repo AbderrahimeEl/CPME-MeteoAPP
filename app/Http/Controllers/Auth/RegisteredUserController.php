@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Log;
+
 
 class RegisteredUserController extends Controller
 {
@@ -45,6 +47,11 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        Log::channel('material')->info('user registred', [
+            'user' => Auth::user()->name,
+            'user_id' => Auth::id(),
+        ]);
 
         return redirect(route('dashboard', absolute: false));
     }

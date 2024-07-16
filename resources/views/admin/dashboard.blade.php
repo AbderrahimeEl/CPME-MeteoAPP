@@ -9,7 +9,7 @@
         <div class="flex flex-row pt-24 px-10 pb-4">
             <div class="w-2/12 mr-6">
                 <div class="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
-                    <a href="" class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                    <a href="{{ route('welcome') }}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
                         <span class="material-icons-outlined float-left pr-2">dashboard</span>
                         Home
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
@@ -26,7 +26,12 @@
                     </a>
                     <a href="{{ route('logs') }}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
                         <span class="material-icons-outlined float-left pr-2">history</span>
-                        Material Logs
+                        Logs
+                        <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
+                    </a>
+                    <a href="{{ route('admin.help') }}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                        <span class="material-icons-outlined float-left pr-2">help</span>
+                        help
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
                     </a>
 

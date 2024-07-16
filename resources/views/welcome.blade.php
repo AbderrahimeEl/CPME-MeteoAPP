@@ -175,7 +175,7 @@
     </main>
     
 
-        <section class="relative py-20">
+        <section class="relative py-20" id="history">
             <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
                 style="height: 80px;">
                 <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
@@ -356,7 +356,7 @@
                     <div class="w-full md:w-4/12 lg:mb-0 mb-12 px-4">
                         <div class="px-6">
                             <img alt="..."
-                                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=60"
+                                src="{{ asset('images/profile.png') }}"
                                 class="shadow-lg rounded-full  mx-auto" style="max-width: 120px; " />
                             <div class="pt-6 text-center">
                                 <h5 class="text-xl font-bold">Ryan Tompson</h5>
@@ -386,8 +386,8 @@
                     <div class="w-full md:w-4/12 lg:mb-0 mb-12 px-4">
                         <div class="px-6">
                             <img alt="..."
-                                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=60"
-                                class="shadow-lg rounded-full mx-auto max-w-120-px" style="max-width: 120px; " />
+                            src="{{ asset('images/profile.png') }}"
+                            class="shadow-lg rounded-full mx-auto max-w-120-px" style="max-width: 120px; " />
                             <div class="pt-6 text-center">
                                 <h5 class="text-xl font-bold">Romina Hadid</h5>
                                 <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
@@ -416,8 +416,8 @@
                     <div class="w-full md:w-4/12 lg:mb-0 mb-12 px-4">
                         <div class="px-6">
                             <img alt="..."
-                                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=60"
-                                class="shadow-lg rounded-full mx-auto max-w-120-px" style="max-width: 120px; " />
+                            src="{{ asset('images/profile.png') }}"
+                            class="shadow-lg rounded-full mx-auto max-w-120-px" style="max-width: 120px; " />
                             <div class="pt-6 text-center">
                                 <h5 class="text-xl font-bold">Alexa Smith</h5>
                                 <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
@@ -493,9 +493,9 @@
                                 <div
                                     class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-gray-300">
                                     <div class="flex-auto p-5 lg:p-10">
-                                        <h4 class="text-2xl font-semibold">Want to work with us?</h4>
+                                        <h4 class="text-2xl font-semibold">Want to contact us?</h4>
                                         <p class="leading-relaxed mt-1 text-gray-600">
-                                            Complete this form and we will get back to you in 24 hours.
+                                            Complete this form and we will get back to you soon.
                                         </p>
                                         <form action="{{ route('contact.send') }}" method="POST">
                                             @csrf
@@ -552,10 +552,10 @@
                             Retrouvez-nous sur ces plateformes, nous répondons dans un délai de 1 à 2 jours ouvrables.
                         </h5>
                         <div class="mt-4 text-gray-700">
-                            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+                            <p>Email: <a href="mailto:your-email@example.com">email@gmail.com</a></p>
                             <p>Tel: +123456789</p>
                             <p>Fax: +123456789</p>
-                            <p>Adresse: Votre adresse, Ville, Pays</p>
+                            <p>Adresse: PORT , ESSAOUIRA, MAROC</p>
                         </div>
                     </div>
                 </div>

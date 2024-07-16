@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="mx-auto sm:px-6 lg:px-8">
         <div class="bg-white min-h-[90%] overflow-hidden shadow-sm sm:rounded-lg p-2">
-            <h1 class="text-2xl font-semibold mb-6">Materials Log actions</h1>
+            <h1 class="text-2xl font-semibold mb-6">Log actions</h1>
             <div class="mb-4">
                 <label for="log-filter" class="block text-sm font-medium text-gray-700">Filter Logs</label>
                 <select id="log-filter"
@@ -26,10 +26,10 @@
                 <tbody id="logs" class="bg-white divide-y divide-gray-200">
                     @foreach (array_reverse($logs) as $log)
                         <tr class="log-entry">
-                            <td class="log-date px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $log }}
+                            <td class="log-date px-6 py-2 whitespace-nowrap text-sm text-gray-800">{{ $log }}
                             </td>
-                            <td class="log-action px-6 py-4 whitespace-nowrap text-sm"></td>
-                            <td class="log-details px-6 py-4 whitespace-nowrap text-sm"></td>
+                            <td class="log-action px-6 py-2 whitespace-nowrap text-sm"></td>
+                            <td class="log-details px-6 py-2 whitespace-nowrap text-sm"></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -64,7 +64,7 @@
 
                         const actionElement = logEntry.querySelector('.log-action');
                         if (action.includes('Material added') || action.includes('user added') || action
-                            .includes('intervention added')) {
+                            .includes('intervention added')|| action.includes('user registred')) {
                             actionElement.style.color = 'green';
                         } else if (action.includes('Material updated') || action.includes('user updated') ||
                             action.includes('intervention updated')) {

@@ -4,7 +4,6 @@
         rel="stylesheet" />
 
     <div class="bg-blue-50 min-h-screen">
-
         <div class="flex flex-row pt-24 px-10 pb-4">
             <!-- Sidebar -->
             <div class="w-2/12 mr-6">
@@ -19,9 +18,21 @@
                         Materials
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
                     </a>
-                    <a href="{{ route('welcome') }}/#services" class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                    <a href="{{ route('welcome') }}/#services"
+                        class="inline-block text-gray-600 hover:text-black my-4 w-full">
                         <span class="material-icons-outlined float-left pr-2">room_service</span>
                         Services
+                        <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
+                    </a>
+                    <a href="{{ route('welcome') }}/#history"
+                        class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                        <span class="material-icons-outlined float-left pr-2">history</span>
+                        history
+                        <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
+                    </a>
+                    <a href="{{ route('admin.help') }}" class="inline-block text-gray-600 hover:text-black my-4 w-full">
+                        <span class="material-icons-outlined float-left pr-2">help</span>
+                        help
                         <span class="material-icons-outlined float-right">keyboard_arrow_right</span>
                     </a>
                     <a href="{{ route('profile.edit') }}"
@@ -64,6 +75,22 @@
                         <a href="{{ route('materiels') }}"
                             class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
                                 Materials</strong></a>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12 mx-6">
+                        <p class="text-5xl text-indigo-900">Services<br><strong>
+                                <p class=" mt-6 text-5xl text-indigo-900"></p>
+                            </strong></p>
+                        <a href="{{ route('welcome') }}/#services"
+                            class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
+                                services</strong></a>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
+                        <p class="text-5xl text-indigo-900">history<br><strong>
+                                <p class=" mt-6 text-5xl text-indigo-900"></p>
+                            </strong></p>
+                        <a href="{{ route('welcome') }}/#history"
+                            class="bg-orange-200 text-xl text-white hover inline-block rounded-full mt-12 px-8 py-2"><strong>See
+                                our Histoy</strong></a>
                     </div>
                 </div>
             </div>

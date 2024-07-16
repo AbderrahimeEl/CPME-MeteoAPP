@@ -42,5 +42,11 @@ Route::get('/materiels', [MaterielController::class, 'index'])->name('materiels'
 Route::get('/materiels/view/{id}', [MaterielController::class, 'view'])->name('materiels.view');
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
+// routes/web.php
+
+Route::get('/help', function () {
+    return view('admin.help');
+})->name('admin.help');
+
 
 require __DIR__ . '/auth.php';

@@ -23,25 +23,27 @@
                             </thead>
                             <tbody id="user-table">
                                 @foreach ($users as $user)
-                                    <tr class="hover:bg-gray-50">
-                                        <td class="py-2 px-4 border-b">{{ $user->name }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $user->phone }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $user->user_type }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $user->email }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <button
-                                                class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
-                                                <a href="{{ route('user.edit', $user->id) }}">Edit</a>
-                                            </button>
-                                            <form action="{{ route('user.destroy', $user->id) }}" method="POST"
-                                                onsubmit="return confirmDelete()" class="inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                    @if ($user->user_type != 'admin')
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="py-2 px-4 border-b">{{ $user->name }}</td>
+                                            <td class="py-2 px-4 border-b">{{ $user->phone }}</td>
+                                            <td class="py-2 px-4 border-b">{{ $user->user_type }}</td>
+                                            <td class="py-2 px-4 border-b">{{ $user->email }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <button
+                                                    class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
+                                                    <a href="{{ route('user.edit', $user->id) }}">Edit</a>
+                                                </button>
+                                                <form action="{{ route('user.destroy', $user->id) }}" method="POST"
+                                                    onsubmit="return confirmDelete()" class="inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -50,7 +52,7 @@
             </div>
         </div>
     </div>
-    <script>    
+    <script>
         document.getElementById('search').addEventListener('input', function() {
             let filter = this.value.toLowerCase();
             let rows = document.querySelectorAll('#user-table tr');

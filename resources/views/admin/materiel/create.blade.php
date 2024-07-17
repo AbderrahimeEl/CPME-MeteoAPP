@@ -1,13 +1,10 @@
 <x-app-layout>
-    <x-slot  name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Créer un matériel') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <h2 class="font-semibold text-xl p-4 pb-1 text-gray-800 leading-tight">
+                    {{ __(' Ajouter un nouvel Materiel') }}
+                </h2>
                 <div class="p-6 text-gray-900">
                     @if (@Session::has('error'))
                         <div class="succ" role="alert">
@@ -76,7 +73,33 @@
                             <x-input-error :messages="$errors->get('date_mise_service')" class="mt-2" />
                         </div>
 
-                        <!-- image -->
+                        <!-- is_sensor -->
+                        <div class="mt-4">
+                            <x-input-label for="is_sensor" :value="__('Est-ce un capteur ?')" />
+                            <input id="is_sensor" class="block mt-1" type="checkbox" name="is_sensor" value="1"
+                                {{ old('is_sensor') ? 'checked' : '' }} />
+                            <x-input-error :messages="$errors->get('is_sensor')" class="mt-2" />
+                        </div>
+
+                        <!-- calibration dates (conditionally displayed) -->
+                        <div id="calibrationFields" style="display: none;">
+                            <!-- date_calibrage -->
+                            <div class="mt-4">
+                                <x-input-label for="date_calibrage" :value="__('Date de calibrage')" />
+                                <x-text-input id="date_calibrage" class="block mt-1 w-full" type="date"
+                                    name="date_calibrage" :value="old('date_calibrage')" autocomplete="date_calibrage" />
+                                <x-input-error :messages="$errors->get('date_calibrage')" class="mt-2" />
+                            </div>
+                            <!-- date_prochaine_calibrage -->
+                            <div class="mt-4">
+                                <x-input-label for="date_prochaine_calibrage" :value="__('Date de prochaine calibrage')" />
+                                <x-text-input id="date_prochaine_calibrage" class="block mt-1 w-full" type="date"
+                                    name="date_prochaine_calibrage" :value="old('date_prochaine_calibrage')"
+                                    autocomplete="date_prochaine_calibrage" />
+                                <x-input-error :messages="$errors->get('date_prochaine_calibrage')" class="mt-2" />
+                            </div>
+                            <!-- image -->
+                        </div>
                         <div class="mt-4">
                             <x-input-label for="image" :value="__('Image')" />
                             <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" />
@@ -88,9 +111,30 @@
                                 {{ __('Ajouter') }}
                             </x-primary-button>
                         </div>
+                        <button type="button"
+                            class="mt-4 flex items-center justify-center w-1/2 px-5 py-2 text-sm text-white transition-colors duration-200 border rounded-lg gap-x-2 sm:w-auto bg-blue-600 hover:bg-blue-500">
+                            <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                            </svg>
+                            <a href="{{ route('materiels') }}">Retourner aux matériels</a>
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('is_sensor').addEventListener('change', function() {
+            var calibrationFields = document.getElementById('calibrationFields');
+            if (this.checked) {
+                calibrationFields.style.display = 'block';
+            } else {
+                calibrationFields.style.display = 'none';
+            }
+        });
+        document.getElementById('is_sensor').dispatchEvent(new Event('change'));
+    </script>
 </x-app-layout>

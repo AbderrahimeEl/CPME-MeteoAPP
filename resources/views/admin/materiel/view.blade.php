@@ -1,6 +1,7 @@
 <x-app-layout>
     <section class="w-full mx-auto py-10 bg-white text-black">
-        <div class="w-fit pb-1 px-2 mx-4 rounded-md text-2xl font-semibold border-b-2 border-blue-600 ms-[10%]">Informations sur le matériel</div>
+        <div class="w-fit pb-1 px-2 mx-4 rounded-md text-2xl font-semibold border-b-2 border-blue-600 ms-[10%]">
+            Informations sur le matériel</div>
         <div
             class="xl:w-[80%] sm:w-[85%] xs:w-[90%] mx-auto flex md:flex-row xs:flex-col lg:gap-4 xs:gap-2 justify-center lg:items-stretch md:items-center mt-4">
             <div class="lg:w-[50%] xs:w-full">
@@ -44,10 +45,16 @@
                         <p class="text-gray-600">Date de mise en service</p>
                         <p>{{ $materiel->date_mise_service }}</p>
                     </div>
-                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                        <p class="text-gray-600">Description</p>
-                        <p>{{ $materiel->description }}</p>
-                    </div>
+                    @if ($materiel->is_sensor)
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">Calibration</p>
+                            <p>{{ $calibration->date_calibrage }}</p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">date de prochaine Calibration</p>
+                            <p>{{ $calibration->date_prochaine_calibrage }}</p>
+                        </div>
+                    @endif
                 </div>
                 <div class="mt-4 flex gap-2">
                     @if (auth()->user()->user_type == 'admin')
@@ -62,10 +69,12 @@
                         </form>
                     @endif
                     <a href="{{ route('materiels.interventions', $materiel->id) }}"
-                        class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Voir les interventions
+                        class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Voir
+                        les interventions
                     </a>
                     <a href="{{ route('materiels') }}"
-                        class="inline-block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">Retour à la liste</a>
+                        class="inline-block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">Retour
+                        à la liste</a>
                 </div>
             </div>
         </div>
